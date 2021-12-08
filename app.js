@@ -8,6 +8,9 @@ app.use(express.json());
 connectDB();
 
 app.use("/", require("./Routes/user"));
+app.use("*", (req, res) => {
+  res.send("404 - PAGE NOT FOUND");
+});
 
 const PORT = process.env.PORT;
 app.listen(PORT, (err) => {
